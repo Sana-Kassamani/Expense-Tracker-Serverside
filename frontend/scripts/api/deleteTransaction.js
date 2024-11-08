@@ -1,22 +1,34 @@
-let deleteBtns = document.querySelectorAll("#delete");
+// let deleteBtns = document.getElementsByClassName("delete-btn");
 
-const deleteTransacion = async (id) => {
+const deleteTransaction = async (id) => {
+  const body = new FormData();
+  body.append("id", id);
   try {
-    await fetch(
-      `http://localhost/Expense-Tracker-Serverside/server-side/deleteTransaction.php?id=${id}`
+    const response = await axios(
+      "http://localhost/Expense-Tracker-Serverside/server-side/deleteTransaction.php",
+      {
+        method: "post",
+        data: body,
+      }
     );
   } catch (error) {
     console.log(error);
   }
-  console.log("deleted");
   window.location.reload();
 };
 
-deleteBtns.forEach((element) => {
-  element.addEventListener("click", async () => {
-    console.log("Delete pressed");
-    const id = element.getAttribute("transaction-id");
-    const transaction_id = parseInt(id);
-    await deleteTransacion(transaction_id);
-  });
-});
+// console.log(deleteBtns);
+// for (let i = 0; i < deleteBtns.length; i++) {
+//   console.log(deleteBtns[i]);
+//   deleteBtns[i].addEventListener("click", () => {
+//     console.log("hiiiiii");
+//   });
+// }
+
+// Array.from(deleteBtns).forEach((element) => {
+//   element.addEventListener("click", async () => {
+//     console.log("Delete pressed");
+//     const id = element.getAttribute("transaction-id");
+//     await deleteTransaction(id);
+//   });
+// });

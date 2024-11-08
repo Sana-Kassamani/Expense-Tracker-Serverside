@@ -1,18 +1,22 @@
 <?php
 include "connection.php";
 
-$transaction_id= $_GET["id"];
+$transaction_id= $_POST["id"];
 
 
-$query = $connection->prepare("DELETE FROM transactions WHERE id = $transaction_id;");
+$query = $connection->prepare("DELETE FROM transactions WHERE id = ?;");
 
+$query->bind_param("i",$transaction_id);
 
 $query->execute();
 
 if($connection->affected_rows >0){
-    echo "successful";
+    echo  json_encode([
+        "message"=>"Successfully deleted row",
+    ]);
 }
 else{
-    
-    echo $connection->error;
+    echo  json_encode([
+        "message"=>$connection->error,
+    ]);
 }

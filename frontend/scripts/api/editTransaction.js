@@ -1,4 +1,3 @@
-let editBtns = document.querySelectorAll("#edit");
 let saveBTn = document.getElementById("save-changes");
 
 const editTransacion = (id) => {
