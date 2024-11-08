@@ -12,22 +12,25 @@ const createTransaction = async () => {
     notes: transactionNotes.value,
   };
 
-  console.log(transaction);
+  const body = new FormData();
+  body.append("type", transaction.type);
+  body.append("amount", transaction.amount);
+  body.append("date", transaction.date);
+  body.append("notes", transaction.notes);
+
   if (validityCheck()) {
     try {
-      const response = await fetch(
-        `http://localhost/Expense-Tracker-Serverside/server-side/createTransaction.php?type=${transaction.type}&amount=${transaction.amount}&date=${transaction.date}&notes=${transaction.notes}`
+      const response = await axios(
+        "http://localhost/Expense-Tracker-Serverside/server-side/createTransaction.php",
+        {
+          method: "post",
+          headers: { "Content-Type": "multipart/form-data" },
+          data: body,
+        }
       );
     } catch (error) {
       console.log(error);
     }
-    // {
-    //   method: "POST",
-    //   body: JSON.stringify(transaction),
-    //   headers: {
-    //     "Content-type": "application/json; charset=UTF-8",
-    //   },
-    // }
   } else {
     errorMessage.style.display = "inline";
   }
