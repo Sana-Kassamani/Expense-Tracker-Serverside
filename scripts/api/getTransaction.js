@@ -5,7 +5,10 @@ const getAllTransactions = async () => {
 
   const transactionsArray = await response.json();
   for (let i = 0; i < transactionsArray.length; i++) {
+    console.log(transactionsArray[i]);
     displayTransaction(transactionsArray[i]);
   }
 };
-getAllTransactions();
+document.addEventListener("DOMContentLoaded", async () => {
+  await getAllTransactions();
+});
