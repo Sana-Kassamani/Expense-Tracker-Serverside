@@ -33,21 +33,26 @@ function showTransactionFields(transaction) {
   submitBtn.style.display = "none";
 }
 
-function saveTransaction(id) {
+async function saveTransaction(id) {
   transactionType = expenseType.checked
     ? expenseType.value
     : incomeType.checked
     ? incomeType.value
     : null;
   const transaction = {
-    id: id,
     type: transactionType,
     amount: transactionAmount.value,
     date: transactionDate.value,
     notes: transactionNotes.value,
   };
   if (validityCheck()) {
-    localStorage.setItem(`${id}`, JSON.stringify(transaction));
+    try {
+      const response = await fetch(
+        `http://localhost/Expense-Tracker-Serverside/server-side/editTransaction.php?id=${id}&type=${transaction.type}&amount=${transaction.amount}&date=${transaction.date}&notes=${transaction.notes}`
+      );
+    } catch (error) {
+      console.log(error);
+    }
     saveBTn.style.display = "none";
     submitBtn.disabled = "false";
     window.location.reload();
