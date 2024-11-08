@@ -1,14 +1,11 @@
-if (!localStorage.getItem("ID")) {
-  localStorage.setItem("ID", 0);
-}
+const getAllTransactions = async () => {
+  const response = await fetch(
+    "http://localhost/Expense-Tracker-Serverside/server-side/getTransactions.php"
+  );
 
-const getAllTransactions = () => {
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    if (key != "ID") {
-      const transaction = JSON.parse(localStorage.getItem(key));
-      displayTransaction(transaction);
-    }
+  const transactionsArray = await response.json();
+  for (let i = 0; i < transactionsArray.length; i++) {
+    displayTransaction(transactionsArray[i]);
   }
 };
 getAllTransactions();

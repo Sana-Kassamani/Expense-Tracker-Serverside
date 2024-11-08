@@ -27,6 +27,6 @@ let expenseH2 = document.getElementById("Expense-value");
 let incomeH2 = document.getElementById("Income-value");
 let budgetH2 = document.getElementById("Budget-value");
 
-expenseH2.innerHTML = `${getExpenses()} $`;
-incomeH2.innerHTML = `${getIncomes()} $`;
-budgetH2.innerHTML = `${(getIncomes() - getExpenses()).toFixed(2)} $`;
+// expenseH2.innerHTML = `${getExpenses()} $`;
+// incomeH2.innerHTML = `${getIncomes()} $`;
+// budgetH2.innerHTML = `${(getIncomes() - getExpenses()).toFixed(2)} $`;
