@@ -12,7 +12,7 @@ $notes = $_POST["notes"] ;
 // $date = $_GET["date"] ;
 // $notes = $_GET["notes"] ;
 
-$user_id = 1;
+$user_id = 5;
 
 $query = $connection->prepare("INSERT INTO transactions (type, amount, date, notes, Users_id) VALUES (?, ?, ?, ?, ?)");
 

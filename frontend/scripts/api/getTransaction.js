@@ -8,6 +8,7 @@ const getAllTransactions = async () => {
     displayTransaction(transactionsArray[i]);
   }
 };
-document.addEventListener("DOMContentLoaded", async () => {
-  await getAllTransactions();
-});
+// document.addEventListener("DOMContentLoaded", async () => {
+//   await getAllTransactions();
+// });
+getAllTransactions();

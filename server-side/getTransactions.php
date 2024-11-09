@@ -2,7 +2,7 @@
 
 include "connection.php";
 
-$response = $connection->prepare("SELECT * FROM transactions WHERE Users_id=1;");
+$response = $connection->prepare("SELECT * FROM transactions WHERE Users_id=5;");
 
 $response->execute();
 
