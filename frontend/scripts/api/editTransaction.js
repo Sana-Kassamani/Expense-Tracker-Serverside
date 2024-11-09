@@ -1,27 +1,3 @@
-const listenOnEdits = function () {
-  const edit_btns = document.getElementsByClassName("edit-btn");
-
-  console.log(edit_btns);
-  for (let i = 0; i < edit_btns.length; i++) {
-    console.log(edit_btns[i]);
-    edit_btns[i].addEventListener("click", () => {
-      console.log("hiiiiii");
-    });
-  }
-  // Array.from().forEach((element) => {
-  //   console.log(element);
-  //   element.addEventListener("click", async () => {
-  //     const id = element.getAttribute("transaction-id");
-  //     await editTransacion(id);
-  //   });
-  // });
-};
-
-listenOnEdits();
-// btn.addEventListener("click", async () => {
-//   const id = btn.getAttribute("transaction-id");
-//   await editTransaction(id);
-// });
 const editTransaction = async (id) => {
   const response = await axios.post(
     `http://localhost/Expense-Tracker-Serverside/server-side/getTransaction.php?id=${id}`
@@ -95,3 +71,39 @@ async function saveTransaction(id) {
     }
   }
 }
+
+const listenOnEdits = function () {
+  const edit_btns = document.getElementsByClassName("edit-btn");
+
+  // return html collection filled with buttons
+  console.log(edit_btns);
+  const array = Array.from(edit_btns);
+  console.log(array.length); //return zero
+  //BUG ALERT:
+  // the problem is edit btns are created dynamically and whenthis function runs they are not yet created so array.length=0
+  // but html collection updates dynamically thats why it shows content but doesnt add the event listener
+  for (let i = 0; i < edit_btns.length; i++) {
+    console.log(edit_btns[i]);
+    edit_btns[i].addEventListener("click", () => {
+      console.log("hiiiiii");
+    });
+  }
+};
+
+document.addEventListener("DOMContentLoaded", async () => {
+  console.log("Edit file");
+  await listenOnEdits();
+});
+
+// Array.from().forEach((element) => {
+//   console.log(element);
+//   element.addEventListener("click", async () => {
+//     const id = element.getAttribute("transaction-id");
+//     await editTransacion(id);
+//   });
+// });
+
+// btn.addEventListener("click", async () => {
+//   const id = btn.getAttribute("transaction-id");
+//   await editTransaction(id);
+// });
