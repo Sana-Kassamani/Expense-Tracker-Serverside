@@ -21,7 +21,7 @@ const createTransaction = async () => {
   body.append("amount", transaction.amount);
   body.append("date", transaction.date);
   body.append("notes", transaction.notes);
-  body.append("id", transaction.userId);
+  body.append("userId", transaction.userId);
 
   if (validityCheck()) {
     try {
@@ -39,7 +39,7 @@ const createTransaction = async () => {
   } else {
     errorMessage.style.display = "inline";
   }
-  window.location.reload();
+  // window.location.reload();
 };
 
 submitBtn.addEventListener("click", async () => {
