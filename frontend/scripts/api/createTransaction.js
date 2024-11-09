@@ -36,7 +36,8 @@ const createTransaction = async () => {
   } else {
     errorMessage.style.display = "inline";
   }
-  window.location.reload();
+
+  showContent();
 };
 
 submitBtn.addEventListener("click", async () => {
