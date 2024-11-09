@@ -6,13 +6,13 @@ $type = $_POST["type"] ;
 $amount = $_POST["amount"];
 $date = $_POST["date"] ;
 $notes = $_POST["notes"] ;
-
+$user_id = $_POST["userId"];
 // $type = $_GET["type"] ;
 // $amount = $_GET["amount"];
 // $date = $_GET["date"] ;
 // $notes = $_GET["notes"] ;
 
-$user_id = 5;
+
 
 $query = $connection->prepare("INSERT INTO transactions (type, amount, date, notes, Users_id) VALUES (?, ?, ?, ?, ?)");
 

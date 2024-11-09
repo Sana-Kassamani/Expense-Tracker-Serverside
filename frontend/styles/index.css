@@ -144,7 +144,27 @@ button:disabled {
   display: none;
   opacity: 1;
 }
-
+.login,
+.signup {
+  margin: auto;
+  height: 100vh;
+  background-color: #cdefec;
+}
+.login > div,
+.signup > div {
+  gap: 20px;
+}
+.content-div {
+  display: none;
+}
+.signup {
+  display: none;
+}
+.link {
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
 @media (max-width: 500px) {
   table {
     overflow-x: auto;

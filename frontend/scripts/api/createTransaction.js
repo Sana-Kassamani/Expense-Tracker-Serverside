@@ -10,6 +10,7 @@ const createTransaction = async () => {
     amount: transactionAmount.value,
     date: transactionDate.value,
     notes: transactionNotes.value,
+    userId: localStorage.userId,
   };
 
   const body = new FormData();
@@ -17,6 +18,7 @@ const createTransaction = async () => {
   body.append("amount", transaction.amount);
   body.append("date", transaction.date);
   body.append("notes", transaction.notes);
+  body.append("id", transaction.userId);
 
   if (validityCheck()) {
     try {

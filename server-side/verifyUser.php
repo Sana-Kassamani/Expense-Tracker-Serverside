@@ -17,13 +17,14 @@ $result= $query->get_result();
 if ($result->num_rows > 0)
 {
     $user= $result->fetch_assoc();
-    echo json_encode($user);
+    
     $check = password_verify($password,$user["password"]);
 
     if($check)
     {
         echo json_encode([
             "message"=> "Login successful",
+            "id"=> $user["id"],
         ]);
     }
     else{
