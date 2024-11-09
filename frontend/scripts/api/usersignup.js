@@ -18,7 +18,6 @@ const signup = async (name, password) => {
         data: body,
       }
     );
-    console.log(response.data.id);
     if (response.data.message === "Successful creating new user") {
       localStorage.setItem("userId", response.data.id);
       window.location.href = "./home.html";

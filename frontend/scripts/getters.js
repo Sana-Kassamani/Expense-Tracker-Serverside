@@ -16,7 +16,7 @@ async function getTotal(type) {
   );
 
   let total = await response.data;
-  console.log(total);
+
   return total;
 }
 

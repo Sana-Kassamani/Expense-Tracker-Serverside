@@ -24,9 +24,6 @@ function filterTable(index, filter) {
   let tr = table.getElementsByTagName("tr");
   for (let i = 1; i < tr.length; i++) {
     let rowData = tr[i].getElementsByTagName("td");
-    console.log("Row data at index", i, "is ", rowData);
-    console.log("Inner html ", rowData[index]);
-    console.log("Inner text  ", rowData[index].innerText);
     if (
       !filter(rowData[index].innerHTML) ||
       !filter(rowData[index].innerText)

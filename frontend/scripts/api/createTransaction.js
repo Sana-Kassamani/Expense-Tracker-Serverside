@@ -6,7 +6,6 @@ const createTransaction = async () => {
     ? incomeType.value
     : null;
   const id = JSON.parse(localStorage.userId);
-  console.log(id);
   const transaction = {
     type: transactionType,
     amount: transactionAmount.value,
@@ -15,7 +14,6 @@ const createTransaction = async () => {
     userId: id,
   };
 
-  console.log();
   const body = new FormData();
   body.append("type", transaction.type);
   body.append("amount", transaction.amount);

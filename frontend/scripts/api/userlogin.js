@@ -23,9 +23,7 @@ const login = async (name, password) => {
         data: body,
       }
     );
-    console.log(response.data.id);
     if (response.data.message === "Login successful") {
-      console.log("Div is", loginDiv);
       localStorage.setItem("userId", response.data.id);
       window.location.href = "./pages/home.html";
     } else {
