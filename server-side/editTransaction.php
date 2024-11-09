@@ -2,11 +2,16 @@
 
 include "connection.php";
 
+$type = $_POST["type"] ;
+$amount = $_POST["amount"];
+$date = $_POST["date"] ;
+$notes = $_POST["notes"] ;
+$id = $_POST["id"];
 
-$data = json_decode(file_get_contents("php://input"), true);
 
-$query = $connection->prepare("INSERT INTO transactions (type, amount, date, notes, Users_id) VALUES (?, ?, ?, ?, ?)");
+$query = $connection->prepare("UPDATE transactions SET type = ?, amount = ?, date = ? , notes = ? WHERE id = ?;");
 
+$query->bind_param("sdssi", $type, $amount, $date, $notes, $id);
 
 $query->execute();
 

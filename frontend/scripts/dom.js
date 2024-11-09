@@ -36,10 +36,6 @@ function addEditBtn(parent, id) {
   let btn = document.createElement("button");
   btn.setAttribute("class", "edit-btn flex align-center justify-center");
   btn.setAttribute("transaction-id", `${id}`);
-  btn.addEventListener("click", async () => {
-    const id = btn.getAttribute("transaction-id");
-    await editTransaction(id);
-  });
   btn.innerHTML = `<div class="div-img"><img src="./assets/pencil.png"  /></div>`;
   parent.appendChild(btn);
 }

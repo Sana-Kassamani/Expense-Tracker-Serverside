@@ -1,8 +1,7 @@
 <?php
-header("Access-Control-allow-Origin:*");
-header("Access-Control-Allows-Headers: Content-Type");
-header("Access-Control-Allows-Method: GET , POST");
-
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Methods: GET, POST");
 
 $host = "localhost";
 $db_user = "root";
