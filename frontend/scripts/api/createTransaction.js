@@ -5,7 +5,7 @@ const createTransaction = async () => {
     : incomeType.checked
     ? incomeType.value
     : null;
-  let id = JSON.parse(localStorage.userId);
+  const id = JSON.parse(localStorage.userId);
   console.log(id);
   const transaction = {
     type: transactionType,
@@ -39,7 +39,7 @@ const createTransaction = async () => {
   } else {
     errorMessage.style.display = "inline";
   }
-  // window.location.reload();
+  window.location.reload();
 };
 
 submitBtn.addEventListener("click", async () => {
