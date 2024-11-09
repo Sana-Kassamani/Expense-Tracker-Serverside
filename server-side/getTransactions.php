@@ -2,7 +2,10 @@
 
 include "connection.php";
 
-$response = $connection->prepare("SELECT * FROM transactions WHERE Users_id=5;");
+$id = $_GET["id"];
+
+$response = $connection->prepare("SELECT * FROM transactions WHERE Users_id= ? ;");
+$response-> bind_param("i",$id);
 
 $response->execute();
 
