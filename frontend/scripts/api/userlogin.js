@@ -28,6 +28,9 @@ const login = async (name, password) => {
       console.log("Div is", loginDiv);
       localStorage.setItem("userId", response.data.id);
       window.location.href = "./pages/home.html";
+    } else {
+      let errorMessage = document.getElementById("error");
+      errorMessage.style.display = "inline";
     }
   } catch (error) {
     console.log(error);
