@@ -1,6 +1,7 @@
 const getAllTransactions = async () => {
+  let id = JSON.parse(localStorage.userId);
   const response = await axios.get(
-    "http://localhost/Expense-Tracker-Serverside/server-side/getTransactions.php"
+    `http://localhost/Expense-Tracker-Serverside/server-side/getTransactions.php?id=${id}`
   );
 
   const transactionsArray = response.data;

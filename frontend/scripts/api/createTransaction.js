@@ -5,14 +5,17 @@ const createTransaction = async () => {
     : incomeType.checked
     ? incomeType.value
     : null;
+  let id = JSON.parse(localStorage.userId);
+  console.log(id);
   const transaction = {
     type: transactionType,
     amount: transactionAmount.value,
     date: transactionDate.value,
     notes: transactionNotes.value,
-    userId: localStorage.userId,
+    userId: id,
   };
 
+  console.log();
   const body = new FormData();
   body.append("type", transaction.type);
   body.append("amount", transaction.amount);
@@ -36,8 +39,7 @@ const createTransaction = async () => {
   } else {
     errorMessage.style.display = "inline";
   }
-
-  showContent();
+  window.location.reload();
 };
 
 submitBtn.addEventListener("click", async () => {

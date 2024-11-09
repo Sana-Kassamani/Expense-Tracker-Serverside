@@ -15,7 +15,6 @@ const deleteTransaction = async (id) => {
     console.log(error);
   }
   window.location.reload();
-  showContent();
 };
 
 // console.log(deleteBtns);

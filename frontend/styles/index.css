@@ -154,12 +154,7 @@ button:disabled {
 .signup > div {
   gap: 20px;
 }
-.content-div {
-  display: none;
-}
-.signup {
-  display: none;
-}
+
 .link {
   font-weight: 700;
   text-decoration: underline;

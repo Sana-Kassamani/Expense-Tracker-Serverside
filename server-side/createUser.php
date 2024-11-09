@@ -1,11 +1,15 @@
 <?php
 
+header("Access-Control-Allow-Origin:*");
+header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Methods: GET,POST");
+
 include "connection.php";
 
 $username=$_POST["name"];
 $password = $_POST["password"];
 
-$query = $connection->prepare("Insert into users (name, password) VALUES (?,?);");
+$query = $connection->prepare("IINSERT INTO users (name, password) VALUES (?,?);");
 
 $hashed = password_hash($password,PASSWORD_DEFAULT);
 

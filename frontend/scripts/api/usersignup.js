@@ -22,37 +22,16 @@ const signup = async (name, password) => {
     if (response.data.message === "Successful creating new user") {
       console.log("Div is", loginDiv);
       localStorage.setItem("userId", response.data.id);
-      showContent();
+      window.location.href = "./home.html";
     }
   } catch (error) {
     console.log(error);
   }
 };
 
-login_btn.addEventListener("click", async () => {
-  const login_name = document.getElementById("login-name").value;
-  const login_password = document.getElementById("login-password").value;
-  await login(login_name, login_password);
+signup_btn.addEventListener("click", async () => {
+  await signup(signup_name, signup_password);
 });
-signup_link.addEventListener("click", () => {
-  showSignup();
+login_link.addEventListener("click", () => {
+  window.location.href = "./../index.html";
 });
-
-const showContent = () => {
-  window.location.reload();
-  signupDiv.style.display = "none";
-  loginDiv.style.display = "none";
-  content.style.display = "block";
-};
-const showLogin = () => {
-  window.location.reload();
-  signupDiv.style.display = "none";
-  loginDiv.style.display = "block";
-  content.style.display = "none";
-};
-const showSignup = () => {
-  window.location.reload();
-  signupDiv.style.display = "block";
-  loginDiv.style.display = "none";
-  content.style.display = "none";
-};

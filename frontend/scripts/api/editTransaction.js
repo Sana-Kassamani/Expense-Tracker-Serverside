@@ -90,7 +90,6 @@ async function saveTransaction(id) {
       saveBTn.style.display = "none";
       submitBtn.disabled = "false";
       window.location.reload();
-      showContent();
     } else {
       errorMessage.style.display = "inline";
     }
